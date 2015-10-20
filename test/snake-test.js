@@ -4,14 +4,6 @@ const BodyPart = require('../lib/snake').BodyPart;
 const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
-  // beforeEach(function () {
-  //   this.canvas = document.createElement('canvas');
-  //   this.canvas.id = 'game'
-  //   this.canvas.width = 400;
-  //   this.canvas.height = 400;
-  //   this.context = canvas.getContext('2d');
-  // });
-
   it('exists', function () {
     assert(new Snake());
   })
@@ -29,6 +21,13 @@ describe('Snake', function () {
     let snake = new Snake();
     assert(snake.draw);
   });
+
+  it('appends body part when it eats', function () {
+    let snake = new Snake();
+    snake.eat();
+    assert(snake.body[1])
+    assert.equal(snake.body.length, 2)
+  });
 });
 
 
@@ -38,10 +37,10 @@ describe('BodyPart', function () {
   });
 
   it('should instantiate with an x, y, height, and width', function(){
-      let bodyPart = new BodyPart(20, 20, 30, 30);
+      let bodyPart = new BodyPart(20, 20);
       assert.equal(bodyPart.x, 20);
       assert.equal(bodyPart.y, 20);
-      assert.equal(bodyPart.width, 30);
-      assert.equal(bodyPart.height, 30);
+      assert.equal(bodyPart.width, 10);
+      assert.equal(bodyPart.height, 10);
   });
 });
