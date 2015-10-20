@@ -4,6 +4,14 @@ const BodyPart = require('../lib/snake').BodyPart;
 const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
+  // beforeEach(function () {
+  //   this.canvas = document.createElement('canvas');
+  //   this.canvas.id = 'game'
+  //   this.canvas.width = 400;
+  //   this.canvas.height = 400;
+  //   this.context = canvas.getContext('2d');
+  // });
+
   it('exists', function () {
     assert(new Snake());
   })
@@ -15,6 +23,11 @@ describe('Snake', function () {
     assert.equal(snake.head.width, 10)
     assert.equal(snake.head.height, 10)
     assert(snake.body)
+  });
+
+  it('should have a draw method', function () {
+    let snake = new Snake();
+    assert(snake.draw);
   });
 });
 
@@ -31,9 +44,4 @@ describe('BodyPart', function () {
       assert.equal(bodyPart.width, 30);
       assert.equal(bodyPart.height, 30);
   });
-
-  // it('should have a draw method', function () {
-  //   let bodyPart = new BodyPart(20, 20, 30, 30);
-  //   assert(bodyPart.draw, 'something');
-  // });
 });
