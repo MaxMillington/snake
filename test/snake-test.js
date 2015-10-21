@@ -1,6 +1,6 @@
 const chai     = require('chai');
 const assert   = chai.assert;
-const BodyPart = require('../lib/snake').BodyPart;
+const Block = require('../lib/snake').Block;
 const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
@@ -31,18 +31,23 @@ describe('Snake', function () {
 });
 
 
-describe('BodyPart', function () {
+describe('Block', function () {
   it('exists', function () {
-    assert(new BodyPart(20, 20, 30, 30));
+    assert(new Block(20, 20, 30, 30));
   });
 
   it('should instantiate with an x, y, height, and width', function(){
-      let bodyPart = new BodyPart(20, 20);
-      assert.equal(bodyPart.x, 20);
-      assert.equal(bodyPart.y, 20);
-      assert.equal(bodyPart.width, 10);
-      assert.equal(bodyPart.height, 10);
+      let block = new Block(20, 20);
+      assert.equal(block.x, 20);
+      assert.equal(block.y, 20);
+      assert.equal(block.width, 10);
+      assert.equal(block.height, 10);
   });
+
+  it('draws', function () {
+    let snake = new Snake();
+    assert(snake.draw);
+  })
 });
 
 
