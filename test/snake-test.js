@@ -10,6 +10,7 @@ describe('Snake', function () {
 
   it('has a head and a body', function () {
     let snake = new Snake();
+    debugger;
     assert.equal(snake.head.x, 40);
     assert.equal(snake.head.y, 40);
     assert.equal(snake.head.width, 10);
