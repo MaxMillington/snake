@@ -14,4 +14,9 @@ describe('Block', function () {
     let block = new Block(this.board);
     assert.equal(block.board, this.board);
   });
+
+  it('should have access to a Board X-coordinate', function () {
+    let block = this.board.addBlock(10, 10);
+    assert.equal(block.x, 10);
+  });
 });
