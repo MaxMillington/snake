@@ -29,25 +29,3 @@ describe('Snake', function () {
     assert.equal(snake.body.length, 2)
   });
 });
-
-
-describe('Block', function () {
-  it('exists', function () {
-    assert(new Block(20, 20, 30, 30));
-  });
-
-  it('should instantiate with an x, y, height, and width', function(){
-      let block = new Block(20, 20);
-      assert.equal(block.x, 20);
-      assert.equal(block.y, 20);
-      assert.equal(block.width, 10);
-      assert.equal(block.height, 10);
-  });
-
-  it('draws', function () {
-    let snake = new Snake();
-    assert(snake.draw);
-  })
-});
-
-
