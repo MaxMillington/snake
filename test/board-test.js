@@ -20,7 +20,7 @@ describe('Board', function () {
         assert.equal(board.rows, 600);
     });
 
-    it('has an array of block', function() {
+    it('has an array of blocks', function() {
         let board = new Board(600, 600);
         assert.isArray(board.blocks);
     });
@@ -28,8 +28,9 @@ describe('Board', function () {
     describe('findBlockAtCoodinates', function() {
         it('should find a block at given coordinates', function() {
             let board = new Board(600, 600);
-            let block = new Block(board, 300, 200);
-            assert.equal(findBlock(300, 200), block);
+            let block = new Block(300, 200, board);
+            board.blocks.push(block);
+            assert.equal(board.findBlock(300, 200), block);
         });
     });
 });

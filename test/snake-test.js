@@ -1,6 +1,6 @@
 const chai     = require('chai');
 const assert   = chai.assert;
-const Block = require('../lib/snake').Block;
+const Block    = require('../lib/snake').Block;
 const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
