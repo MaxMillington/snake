@@ -11,13 +11,18 @@ describe('Board', function () {
    });
 
     it('has columns', function() {
-        let board = new Board(20, 0);
-        assert.equal(board.columns, 20);
+        let board = new Board(600, 0);
+        assert.equal(board.columns, 600);
     });
 
     it('has rows', function() {
-        let board = new Board(0, 30);
-        assert.equal(board.rows, 30);
+        let board = new Board(0, 600);
+        assert.equal(board.rows, 600);
+    });
+
+    it('has an array of squares', function() {
+        let board = new Board(600, 600);
+        assert.isArray(board.squares);
     });
 
 });
