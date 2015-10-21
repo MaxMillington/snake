@@ -24,4 +24,9 @@ describe('Block', function () {
     let block = this.board.addBlock(10, 10);
     assert.equal(block.y, 10);
   });
+
+  it('should be a member of the board passed in', function () {
+    let block = this.board.addBlock(5, 5);
+    assert.include(this.board.blocks, block);
+  });
 });
