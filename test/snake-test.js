@@ -10,7 +10,6 @@ describe('Snake', function () {
 
   it('has a head and a body', function () {
     let snake = new Snake();
-    debugger;
     assert.equal(snake.head.x, 40);
     assert.equal(snake.head.y, 40);
     assert.equal(snake.head.width, 10);
@@ -28,5 +27,16 @@ describe('Snake', function () {
     snake.eat();
     assert(snake.body[1]);
     assert.equal(snake.body.length, 2)
+  });
+
+  describe('Snake Moves', function () {
+    it('moves two block snake right on one axis', function () {
+      let snake = new Snake();
+      let block = new Block(null, 30, 40);
+      snake.body.push(block)
+      snake.move('39')
+      assert.equal(snake.head.x, 50)
+      assert.equal(snake.body[1].x, 40)
+    });
   });
 });
