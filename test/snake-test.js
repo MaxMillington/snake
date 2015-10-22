@@ -30,7 +30,7 @@ describe('Snake', function () {
   });
 
   describe('Snake Moves', function () {
-    it('moves two block snake right when both blocks are heading right', function () {
+    it('body block, on the same y-axis of the head block takes the coordinants of the head block once the head block moves right', function () {
       let snake = new Snake();
       let block = new Block(null, 30, 40);
       snake.body.push(block)
@@ -41,7 +41,7 @@ describe('Snake', function () {
       assert.equal(snake.body[1].y, 40)
     });
 
-    it('moves two block snake right when both blocks are heading down', function () {
+    it('body block, on the same x-axis of the head block takes the coordinants of the head block once the head block moves right', function () {
       let snake = new Snake();
       let block = new Block(null, 40, 30);
       snake.body.push(block)
