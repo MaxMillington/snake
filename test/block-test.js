@@ -53,6 +53,11 @@ describe('canMoveRight', function () {
     this.board = new Board(300, 200);
   });
 
+  it('should be true if it can move right', function () {
+    let block = this.board.addBlock(10, 10);
+    assert.equal(block.canMoveRight(), true);
+  });
+
   it('should be false if against the right wall', function () {
     let block = this.board.addBlock(300, 10);
     assert.equal(block.canMoveRight(), false);
