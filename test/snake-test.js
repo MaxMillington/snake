@@ -30,13 +30,26 @@ describe('Snake', function () {
   });
 
   describe('Snake Moves', function () {
-    it('moves two block snake right on one axis', function () {
+    it('moves two block snake right when both blocks are heading right', function () {
       let snake = new Snake();
       let block = new Block(null, 30, 40);
       snake.body.push(block)
       snake.move('39')
       assert.equal(snake.head.x, 50)
+      assert.equal(snake.head.y, 40)
       assert.equal(snake.body[1].x, 40)
+      assert.equal(snake.body[1].y, 40)
+    });
+
+    it('moves two block snake right when both blocks are heading down', function () {
+      let snake = new Snake();
+      let block = new Block(null, 40, 30);
+      snake.body.push(block)
+      snake.move('39')
+      assert.equal(snake.head.x, 50)
+      assert.equal(snake.head.y, 40)
+      assert.equal(snake.body[1].x, 40)
+      assert.equal(snake.body[1].y, 40)
     });
   });
 });
