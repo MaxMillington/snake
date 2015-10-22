@@ -47,3 +47,16 @@ describe('canMoveDown', function () {
   });
 
 });
+
+describe('canMoveRight', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be false if against the right wall', function () {
+    let block = this.board.addBlock(300, 10);
+    assert.equal(block.canMoveRight(), false);
+  });
+
+
+});
