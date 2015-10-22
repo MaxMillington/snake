@@ -47,3 +47,54 @@ describe('canMoveDown', function () {
   });
 
 });
+
+describe('canMoveRight', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move right', function () {
+    let block = this.board.addBlock(10, 10);
+    assert.equal(block.canMoveRight(), true);
+  });
+
+  it('should be false if against the right wall', function () {
+    let block = this.board.addBlock(300, 10);
+    assert.equal(block.canMoveRight(), false);
+  });
+
+});
+
+describe('canMoveLeft', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move left', function () {
+    let block = this.board.addBlock(100, 10);
+    assert.equal(block.canMoveLeft(), true);
+  });
+
+  it('should be false if against the Left wall', function () {
+    let block = this.board.addBlock(0, 10);
+    assert.equal(block.canMoveLeft(), false);
+  });
+
+});
+
+describe('canMoveUp', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move up', function () {
+    let block = this.board.addBlock(100, 100);
+    assert.equal(block.canMoveUp(), true);
+  });
+
+  it('should be false if against the top wall', function () {
+    let block = this.board.addBlock(50, 0);
+    assert.equal(block.canMoveUp(), false);
+  });
+
+});
