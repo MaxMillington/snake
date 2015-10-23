@@ -31,15 +31,11 @@ describe('Snake', function () {
   });
 
   describe('canMoveDown', function () {
-  // beforeEach(function () {
-  //   this.board = new Board(300, 200);
-  // });
 
   it('should be true if it can move down', function () {
     let snake = new Snake(300, 200)
     snake.head.x = 10
     snake.head.y = 100
-    // let block = this.board.addBlock(10, 100);
     assert.equal(snake.canMoveDown(), true);
   });
 
@@ -47,25 +43,25 @@ describe('Snake', function () {
     let snake = new Snake(300, 200)
     snake.head.x = 10
     snake.head.y = 200
-    // let block = this.board.addBlock(10, 200);
     assert.equal(snake.canMoveDown(), false);
   });
 
 });
 
 describe('canMoveRight', function () {
-  beforeEach(function () {
-    this.board = new Board(300, 200);
-  });
 
   it('should be true if it can move right', function () {
-    let block = this.board.addBlock(10, 10);
-    assert.equal(block.canMoveRight(), true);
+    let snake = new Snake(300, 200)
+    snake.head.x = 10
+    snake.head.y = 200
+    assert.equal(snake.canMoveRight(), true);
   });
 
   it('should be false if against the right wall', function () {
-    let block = this.board.addBlock(300, 10);
-    assert.equal(block.canMoveRight(), false);
+    let snake = new Snake(300, 200)
+    snake.head.x = 300
+    snake.head.y = 200
+    assert.equal(snake.canMoveRight(), false);
   });
 
 });
