@@ -67,18 +67,19 @@ describe('canMoveRight', function () {
 });
 
 describe('canMoveLeft', function () {
-  beforeEach(function () {
-    this.board = new Board(300, 200);
-  });
 
   it('should be true if it can move left', function () {
-    let block = this.board.addBlock(100, 10);
-    assert.equal(block.canMoveLeft(), true);
+    let snake = new Snake(300, 200)
+    snake.head.x = 100
+    snake.head.y = 10
+    assert.equal(snake.canMoveLeft(), true);
   });
 
   it('should be false if against the Left wall', function () {
-    let block = this.board.addBlock(0, 10);
-    assert.equal(block.canMoveLeft(), false);
+    let snake = new Snake(300, 200)
+    snake.head.x = 0
+    snake.head.y = 10
+    assert.equal(snake.canMoveLeft(), false);
   });
 
 });
