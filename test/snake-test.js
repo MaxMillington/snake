@@ -1,6 +1,7 @@
 const chai     = require('chai');
 const assert   = chai.assert;
-const Block    = require('../lib/snake').Block;
+const Block    = require('../lib/block').Block;
+const Board    = require('../lib/board').Board;
 const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
@@ -28,6 +29,75 @@ describe('Snake', function () {
     assert(snake.body[1]);
     assert.equal(snake.body.length, 2)
   });
+
+  describe('canMoveDown', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move down', function () {
+    let block = this.board.addBlock(10, 100);
+    assert.equal(block.canMoveDown(), true);
+  });
+
+  it('should be false if at the bottom edge of the board', function () {
+    let block = this.board.addBlock(10, 200);
+    assert.equal(block.canMoveDown(), false);
+  });
+
+});
+
+describe('canMoveRight', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move right', function () {
+    let block = this.board.addBlock(10, 10);
+    assert.equal(block.canMoveRight(), true);
+  });
+
+  it('should be false if against the right wall', function () {
+    let block = this.board.addBlock(300, 10);
+    assert.equal(block.canMoveRight(), false);
+  });
+
+});
+
+describe('canMoveLeft', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move left', function () {
+    let block = this.board.addBlock(100, 10);
+    assert.equal(block.canMoveLeft(), true);
+  });
+
+  it('should be false if against the Left wall', function () {
+    let block = this.board.addBlock(0, 10);
+    assert.equal(block.canMoveLeft(), false);
+  });
+
+});
+
+describe('canMoveUp', function () {
+  beforeEach(function () {
+    this.board = new Board(300, 200);
+  });
+
+  it('should be true if it can move up', function () {
+    let block = this.board.addBlock(100, 100);
+    assert.equal(block.canMoveUp(), true);
+  });
+
+  it('should be false if against the top wall', function () {
+    let block = this.board.addBlock(50, 0);
+    assert.equal(block.canMoveUp(), false);
+  });
+
+});
+
 
   describe('Snake Moves Right', function () {
     it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves right', function () {
@@ -262,7 +332,7 @@ describe('Snake', function () {
       assert.equal(snake.body[1].y, 40);
 
       assert.equal(snake.body[2].x, 40);
-      assert.equal(snake.body[2].y, 50)
+      assert.equal(snake.body[2].y, 50);
     });
 
     it('moves 4-block snake into the right coordinates when the head moves left', function () {
@@ -285,7 +355,19 @@ describe('Snake', function () {
       assert.equal(snake.body[2].y, 30);
 
       assert.equal(snake.body[3].x, 30);
-      assert.equal(snake.body[3].y, 30)
+      assert.equal(snake.body[3].y, 30);
+    });
+  });
+  describe('snake head checks for body parts', function () {
+    it('cannot move left onto itself', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 30);
+      let block2 = new Block(null, 30, 30);
+      let block3 = new Block(null, 30, 40);
+      let block4 = new Block(null, 30, 50);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.body.push(block3);
     });
   });
 });
