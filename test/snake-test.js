@@ -29,26 +29,26 @@ describe('Snake', function () {
     assert.equal(snake.body.length, 2)
   });
 
-  describe('Snake Moves', function () {
-    it('body block, on the same y-axis of the head block takes the coordinants of the head block once the head block moves right', function () {
+  describe('Snake Moves Right', function () {
+    it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves right', function () {
       let snake = new Snake();
       let block = new Block(null, 30, 40);
-      snake.body.push(block)
-      snake.move('39')
-      assert.equal(snake.head.x, 50)
-      assert.equal(snake.head.y, 40)
-      assert.equal(snake.body[1].x, 40)
+      snake.body.push(block);
+      snake.move('39');
+      assert.equal(snake.head.x, 50);
+      assert.equal(snake.head.y, 40);
+      assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
 
-    it('body block, on the same x-axis of the head block takes the coordinants of the head block once the head block moves right', function () {
+    it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves right', function () {
       let snake = new Snake();
       let block = new Block(null, 40, 30);
-      snake.body.push(block)
-      snake.move('39')
-      assert.equal(snake.head.x, 50)
-      assert.equal(snake.head.y, 40)
-      assert.equal(snake.body[1].x, 40)
+      snake.body.push(block);
+      snake.move('39');
+      assert.equal(snake.head.x, 50);
+      assert.equal(snake.head.y, 40);
+      assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
 
@@ -58,15 +58,15 @@ describe('Snake', function () {
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
       snake.body.push(block2);
-      snake.move('39')
+      snake.move('39');
 
-      assert.equal(snake.head.x, 50)
-      assert.equal(snake.head.y, 40)
+      assert.equal(snake.head.x, 50);
+      assert.equal(snake.head.y, 40);
 
-      assert.equal(snake.body[1].x, 40)
-      assert.equal(snake.body[1].y, 40)
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
 
-      assert.equal(snake.body[2].x, 40)
+      assert.equal(snake.body[2].x, 40);
       assert.equal(snake.body[2].y, 50)
     });
 
@@ -78,18 +78,213 @@ describe('Snake', function () {
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
-      snake.move('39')
+      snake.move('39');
 
-      assert.equal(snake.head.x, 50)
-      assert.equal(snake.head.y, 40)
+      assert.equal(snake.head.x, 50);
+      assert.equal(snake.head.y, 40);
 
-      assert.equal(snake.body[1].x, 40)
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 30);
+
+      assert.equal(snake.body[3].x, 30);
+      assert.equal(snake.body[3].y, 30)
+    });
+  });
+
+  describe('Snake Moves Up', function () {
+    it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves up', function () {
+      let snake = new Snake();
+      let block = new Block(null, 30, 40);
+      snake.body.push(block);
+      snake.move('40');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
+      assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
+    });
 
-      assert.equal(snake.body[2].x, 40)
-      assert.equal(snake.body[2].y, 30)
+    it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves up', function () {
+      let snake = new Snake();
+      let block = new Block(null, 40, 30);
+      snake.body.push(block);
+      snake.move('40');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40)
+    });
 
-      assert.equal(snake.body[3].x, 30)
+    it('moves 3-block snake into the right coordinates when the head moves up', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 50);
+      let block2 = new Block(null, 40, 60);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.move('40');
+
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 50)
+    });
+
+    it('moves 4-block snake into the right coordinates when the head moves Up', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 30);
+      let block2 = new Block(null, 30, 30);
+      let block3 = new Block(null, 30, 40);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.body.push(block3);
+      snake.move('40');
+
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 30);
+
+      assert.equal(snake.body[3].x, 30);
+      assert.equal(snake.body[3].y, 30)
+    });
+  });
+
+  describe('Snake Moves Down', function () {
+    it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves down', function () {
+      let snake = new Snake();
+      let block = new Block(null, 30, 40);
+      snake.body.push(block);
+      snake.move('38');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 30);
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40)
+    });
+
+    it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves down', function () {
+      let snake = new Snake();
+      let block = new Block(null, 40, 50);
+      snake.body.push(block);
+      snake.move('38');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 30);
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40)
+    });
+
+    it('moves 3-block snake into the right coordinates when the head moves down', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 50);
+      let block2 = new Block(null, 40, 60);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.move('38');
+
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 30);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 50)
+    });
+
+    it('moves 4-block snake into the right coordinates when the head moves down', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 30);
+      let block2 = new Block(null, 30, 30);
+      let block3 = new Block(null, 30, 40);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.body.push(block3);
+      snake.move('38');
+
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 30);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 30);
+
+      assert.equal(snake.body[3].x, 30);
+      assert.equal(snake.body[3].y, 30)
+    });
+  });
+
+  describe('Snake Moves Left', function () {
+    it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves left', function () {
+      let snake = new Snake();
+      let block = new Block(null, 30, 40);
+      snake.body.push(block);
+      snake.move('37');
+      assert.equal(snake.head.x, 30);
+      assert.equal(snake.head.y, 40);
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40)
+    });
+
+    it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves left', function () {
+      let snake = new Snake();
+      let block = new Block(null, 40, 50);
+      snake.body.push(block);
+      snake.move('37');
+      assert.equal(snake.head.x, 30);
+      assert.equal(snake.head.y, 40);
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40)
+    });
+
+    it('moves 3-block snake into the right coordinates when the head moves left', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 50);
+      let block2 = new Block(null, 40, 60);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.move('37');
+
+      assert.equal(snake.head.x, 30);
+      assert.equal(snake.head.y, 40);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 50)
+    });
+
+    it('moves 4-block snake into the right coordinates when the head moves left', function () {
+      let snake = new Snake(); //  40, 40
+      let block1 = new Block(null, 40, 30);
+      let block2 = new Block(null, 30, 30);
+      let block3 = new Block(null, 30, 40);
+      snake.body.push(block1);
+      snake.body.push(block2);
+      snake.body.push(block3);
+      snake.move('37');
+
+      assert.equal(snake.head.x, 30);
+      assert.equal(snake.head.y, 40);
+
+      assert.equal(snake.body[1].x, 40);
+      assert.equal(snake.body[1].y, 40);
+
+      assert.equal(snake.body[2].x, 40);
+      assert.equal(snake.body[2].y, 30);
+
+      assert.equal(snake.body[3].x, 30);
       assert.equal(snake.body[3].y, 30)
     });
   });
