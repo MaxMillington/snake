@@ -99,9 +99,9 @@ describe('Snake', function () {
       let snake = new Snake();
       let block = new Block(null, 30, 40);
       snake.body.push(block);
-      snake.move('39');
-      assert.equal(snake.head.x, 50);
-      assert.equal(snake.head.y, 40);
+      snake.move('40');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -110,9 +110,9 @@ describe('Snake', function () {
       let snake = new Snake();
       let block = new Block(null, 40, 30);
       snake.body.push(block);
-      snake.move('39');
-      assert.equal(snake.head.x, 50);
-      assert.equal(snake.head.y, 40);
+      snake.move('40');
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -123,10 +123,10 @@ describe('Snake', function () {
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
       snake.body.push(block2);
-      snake.move('39');
+      snake.move('40');
 
-      assert.equal(snake.head.x, 50);
-      assert.equal(snake.head.y, 40);
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
@@ -143,10 +143,10 @@ describe('Snake', function () {
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
-      snake.move('39');
+      snake.move('40');
 
-      assert.equal(snake.head.x, 50);
-      assert.equal(snake.head.y, 40);
+      assert.equal(snake.head.x, 40);
+      assert.equal(snake.head.y, 50);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
