@@ -31,18 +31,24 @@ describe('Snake', function () {
   });
 
   describe('canMoveDown', function () {
-  beforeEach(function () {
-    this.board = new Board(300, 200);
-  });
+  // beforeEach(function () {
+  //   this.board = new Board(300, 200);
+  // });
 
   it('should be true if it can move down', function () {
-    let block = this.board.addBlock(10, 100);
-    assert.equal(block.canMoveDown(), true);
+    let snake = new Snake(300, 200)
+    snake.head.x = 10
+    snake.head.y = 100
+    // let block = this.board.addBlock(10, 100);
+    assert.equal(snake.canMoveDown(), true);
   });
 
   it('should be false if at the bottom edge of the board', function () {
-    let block = this.board.addBlock(10, 200);
-    assert.equal(block.canMoveDown(), false);
+    let snake = new Snake(300, 200)
+    snake.head.x = 10
+    snake.head.y = 200
+    // let block = this.board.addBlock(10, 200);
+    assert.equal(snake.canMoveDown(), false);
   });
 
 });
