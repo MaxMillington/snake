@@ -372,6 +372,11 @@ describe('canMoveUp', function () {
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
+      snake.body.push(block4);
+
+      assert.equal(snake.canMoveLeft(), false);
+
     });
+
   });
 });
