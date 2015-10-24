@@ -394,23 +394,22 @@ describe('canMoveUp', function () {
     });
   });
 
-  // describe('snake head checks for body parts', function () {
-  //   it('cannot move left onto itself', function () {
-  //     let board = new Board(300, 200);
-  //     let snake = new Snake(board);
-  //     let block1 = new Block(snake.board, 40, 30);
-  //     let block2 = new Block(snake.board, 30, 30);
-  //     let block3 = new Block(snake.board, 30, 40);
-  //     let block4 = new Block(snake.board, 30, 50);
-  //     snake.eat(block1);
-  //     snake.eat(block2);
-  //     snake.eat(block3);
-  //     snake.eat(block4);
+  describe('snake head checks for body parts', function () {
+    it('cannot move left onto itself', function () {
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
+      let block1 = new Block(snake.board, 40, 30);
+      let block2 = new Block(snake.board, 30, 30);
+      let block3 = new Block(snake.board, 30, 40);
+      let block4 = new Block(snake.board, 30, 50);
+      snake.eat(block1);
+      snake.eat(block2);
+      snake.eat(block3);
+      snake.eat(block4);
 
-  //     assert.equal(snake.body.length, 5)
-  //     assert.equal(snake.canMoveLeft(), false);
+      assert.equal(snake.body.length, 5)
+      assert.equal(snake.canMoveLeft(), false);
+    });
+  });
 
-  //   });
-
-  // });
 });
