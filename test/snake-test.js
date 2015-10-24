@@ -6,11 +6,13 @@ const Snake    = require('../lib/snake').Snake;
 
 describe('Snake', function () {
   it('exists', function () {
-    assert(new Snake());
+    let board = new Board(300, 200);
+    assert(new Snake(board));
   });
 
   it('has a head and a body', function () {
-    let snake = new Snake();
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     assert.equal(snake.head.x, 40);
     assert.equal(snake.head.y, 40);
     assert.equal(snake.head.width, 10);
@@ -19,13 +21,15 @@ describe('Snake', function () {
   });
 
   it('should have a draw method', function () {
-    let snake = new Snake();
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     assert(snake.draw);
   });
 
   describe('Snake Eats', function () {
     it('eats block and appends block to end of body', function () {
-      let snake =  new Snake(300, 200);
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       assert.equal(snake.body.length, 1)
       let block = new Block(snake.board, 50, 40)
       snake.eat(block)
@@ -36,14 +40,16 @@ describe('Snake', function () {
   describe('canMoveDown', function () {
 
   it('should be true if it can move down', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 10
     snake.head.y = 100
     assert.equal(snake.canMoveDown(), true);
   });
 
   it('should be false if at the bottom edge of the board', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 10
     snake.head.y = 200
     assert.equal(snake.canMoveDown(), false);
@@ -54,14 +60,16 @@ describe('Snake', function () {
 describe('canMoveRight', function () {
 
   it('should be true if it can move right', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 10
     snake.head.y = 200
     assert.equal(snake.canMoveRight(), true);
   });
 
   it('should be false if against the right wall', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 300
     snake.head.y = 200
     assert.equal(snake.canMoveRight(), false);
@@ -72,14 +80,16 @@ describe('canMoveRight', function () {
 describe('canMoveLeft', function () {
 
   it('should be true if it can move left', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 100
     snake.head.y = 10
     assert.equal(snake.canMoveLeft(), true);
   });
 
   it('should be false if against the Left wall', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 0
     snake.head.y = 10
     assert.equal(snake.canMoveLeft(), false);
@@ -90,14 +100,16 @@ describe('canMoveLeft', function () {
 describe('canMoveUp', function () {
 
   it('should be true if it can move up', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 100
     snake.head.y = 100
     assert.equal(snake.canMoveUp(), true);
   });
 
   it('should be false if against the top wall', function () {
-    let snake = new Snake(300, 200)
+    let board = new Board(300, 200);
+    let snake = new Snake(board);
     snake.head.x = 50
     snake.head.y = 0
     assert.equal(snake.canMoveUp(), false);
@@ -108,7 +120,8 @@ describe('canMoveUp', function () {
 
   describe('Snake Moves Right', function () {
     it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves right', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 30, 40);
       snake.body.push(block);
       snake.move('39');
@@ -119,7 +132,8 @@ describe('canMoveUp', function () {
     });
 
     it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves right', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 40, 30);
       snake.body.push(block);
       snake.move('39');
@@ -130,7 +144,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 3-block snake into the right coordinates when the head moves right', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 50);
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
@@ -148,7 +163,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 4-block snake into the right coordinates when the head moves right', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 30);
       let block2 = new Block(null, 30, 30);
       let block3 = new Block(null, 30, 40);
@@ -173,7 +189,8 @@ describe('canMoveUp', function () {
 
   describe('Snake Moves Up', function () {
     it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves up', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 30, 40);
       snake.body.push(block);
       snake.move('40');
@@ -184,7 +201,8 @@ describe('canMoveUp', function () {
     });
 
     it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves up', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 40, 30);
       snake.body.push(block);
       snake.move('40');
@@ -195,7 +213,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 3-block snake into the right coordinates when the head moves up', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 50);
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
@@ -213,7 +232,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 4-block snake into the right coordinates when the head moves Up', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 30);
       let block2 = new Block(null, 30, 30);
       let block3 = new Block(null, 30, 40);
@@ -238,7 +258,8 @@ describe('canMoveUp', function () {
 
   describe('Snake Moves Down', function () {
     it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves down', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 30, 40);
       snake.body.push(block);
       snake.move('38');
@@ -249,7 +270,8 @@ describe('canMoveUp', function () {
     });
 
     it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves down', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 40, 50);
       snake.body.push(block);
       snake.move('38');
@@ -260,7 +282,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 3-block snake into the right coordinates when the head moves down', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 50);
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
@@ -278,7 +301,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 4-block snake into the right coordinates when the head moves down', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 30);
       let block2 = new Block(null, 30, 30);
       let block3 = new Block(null, 30, 40);
@@ -303,7 +327,8 @@ describe('canMoveUp', function () {
 
   describe('Snake Moves Left', function () {
     it('body block, on the same y-axis of the head block takes the coordinates of the head block once the head block moves left', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 30, 40);
       snake.body.push(block);
       snake.move('37');
@@ -314,7 +339,8 @@ describe('canMoveUp', function () {
     });
 
     it('body block, on the same x-axis of the head block takes the coordinates of the head block once the head block moves left', function () {
-      let snake = new Snake();
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block = new Block(null, 40, 50);
       snake.body.push(block);
       snake.move('37');
@@ -325,7 +351,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 3-block snake into the right coordinates when the head moves left', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 50);
       let block2 = new Block(null, 40, 60);
       snake.body.push(block1);
@@ -343,7 +370,8 @@ describe('canMoveUp', function () {
     });
 
     it('moves 4-block snake into the right coordinates when the head moves left', function () {
-      let snake = new Snake(); //  40, 40
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
       let block1 = new Block(null, 40, 30);
       let block2 = new Block(null, 30, 30);
       let block3 = new Block(null, 30, 40);
@@ -366,21 +394,23 @@ describe('canMoveUp', function () {
     });
   });
 
-  describe('snake head checks for body parts', function () {
-    it('cannot move left onto itself', function () {
-      let snake = new Snake(); //  40, 40
-      let block1 = new Block(null, 40, 30);
-      let block2 = new Block(null, 30, 30);
-      let block3 = new Block(null, 30, 40);
-      let block4 = new Block(null, 30, 50);
-      snake.body.push(block1);
-      snake.body.push(block2);
-      snake.body.push(block3);
-      snake.body.push(block4);
+  // describe('snake head checks for body parts', function () {
+  //   it('cannot move left onto itself', function () {
+  //     let board = new Board(300, 200);
+  //     let snake = new Snake(board);
+  //     let block1 = new Block(snake.board, 40, 30);
+  //     let block2 = new Block(snake.board, 30, 30);
+  //     let block3 = new Block(snake.board, 30, 40);
+  //     let block4 = new Block(snake.board, 30, 50);
+  //     snake.eat(block1);
+  //     snake.eat(block2);
+  //     snake.eat(block3);
+  //     snake.eat(block4);
 
-      // assert.equal(snake.canMoveLeft(), false);
+  //     assert.equal(snake.body.length, 5)
+  //     assert.equal(snake.canMoveLeft(), false);
 
-    });
+  //   });
 
-  });
+  // });
 });
