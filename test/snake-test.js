@@ -38,22 +38,21 @@ describe('Snake', function () {
   })
 
   describe('canMoveDown', function () {
+    it('should be true if it can move down', function () {
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
+      snake.head.x = 10
+      snake.head.y = 100
+      assert.equal(snake.canMoveDown(), true);
+    });
 
-  it('should be true if it can move down', function () {
-    let board = new Board(300, 200);
-    let snake = new Snake(board);
-    snake.head.x = 10
-    snake.head.y = 100
-    assert.equal(snake.canMoveDown(), true);
-  });
-
-  it('should be false if at the bottom edge of the board', function () {
-    let board = new Board(300, 200);
-    let snake = new Snake(board);
-    snake.head.x = 10
-    snake.head.y = 200
-    assert.equal(snake.canMoveDown(), false);
-  });
+    it('should be false if at the bottom edge of the board', function () {
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
+      snake.head.x = 10
+      snake.head.y = 200
+      assert.equal(snake.canMoveDown(), false);
+    });
 
 });
 
@@ -409,6 +408,21 @@ describe('canMoveUp', function () {
 
       assert.equal(snake.body.length, 5)
       assert.equal(snake.canMoveLeft(), false);
+    });
+
+    it('cannot move right onto itself', function () {
+      let board = new Board(300, 200);
+      let snake = new Snake(board);
+      let block1 = new Block(snake.board, 40, 30);
+      let block2 = new Block(snake.board, 50, 40);
+      let block3 = new Block(snake.board, 50, 50);
+      let block4 = new Block(snake.board, 50, 60);
+      snake.eat(block1);
+      snake.eat(block2);
+      snake.eat(block3);
+      snake.eat(block4);
+
+      assert.equal(snake.canMoveRight(), false);
     });
   });
 
