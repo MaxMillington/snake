@@ -25,5 +25,11 @@ describe('Food', function () {
         let food2 = new Food(board);
         assert.notDeepEqual(food1, food2);
     })
+
+    it('instantiates on the board', function () {
+        let board = new Board(600, 600);
+        let food = new Food(board);
+        assert.deepEqual(board.food[0], food);
+    })
 });
 
