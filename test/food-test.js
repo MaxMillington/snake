@@ -33,17 +33,17 @@ describe('Food', function () {
     });
 
     it('does not instantiate on top of the snake', function () {
-        let board = new Board(600, 600);
+        let board = new Board(20, 20);
         let snake = new Snake(board);
-        let block1 = new Block(snake.board, 30, 40);
-        let block2 = new Block(snake.board, 30, 50);
-        let block3 = new Block(snake.board, 40, 50);
-        let block4 = new Block(snake.board, 50, 50);
+        snake.x = 10;
+        snake.y = 10;
+        let block1 = new Block(snake.board, 0, 10);
+        let block2 = new Block(snake.board, 0, 0);
         snake.eat(block1);
         snake.eat(block2);
-        snake.eat(block3);
-        snake.eat(block4);
         let food = new Food(board);
+        assert.equal(food.x, 10);
+        assert.equal(food.y, 0);
     });
 });
 
