@@ -41,16 +41,16 @@ describe('Snake', function () {
     it('should be true if it can move down', function () {
       let board = new Board(300, 200);
       let snake = new Snake(board);
-      snake.head.x = 10
-      snake.head.y = 100
+      snake.head.x = 10;
+      snake.head.y = 100;
       assert.equal(snake.canMoveDown(), true);
     });
 
     it('should be false if at the bottom edge of the board', function () {
       let board = new Board(300, 200);
       let snake = new Snake(board);
-      snake.head.x = 10
-      snake.head.y = 200
+      snake.head.x = 10;
+      snake.head.y = 200;
       assert.equal(snake.canMoveDown(), false);
     });
 
