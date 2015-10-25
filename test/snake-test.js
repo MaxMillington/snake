@@ -440,20 +440,20 @@ describe('canMoveUp', function () {
       assert.equal(snake.canMoveUp(), false);
     });
 
-    // it('cannot move down onto itself', function () {
-    //   let board = new Board(300, 200);
-    //   let snake = new Snake(board);
-    //   let block1 = new Block(snake.board, 30, 40);
-    //   let block2 = new Block(snake.board, 30, 50);
-    //   let block3 = new Block(snake.board, 40, 50);
-    //   let block4 = new Block(snake.board, 50, 50);
-    //   snake.eat(block1);
-    //   snake.eat(block2);
-    //   snake.eat(block3);
-    //   snake.eat(block4);
+     it('cannot move down onto itself', function () {
+       let board = new Board(300, 200);
+       let snake = new Snake(board);
+       let block1 = new Block(snake.board, 30, 40);
+       let block2 = new Block(snake.board, 30, 50);
+       let block3 = new Block(snake.board, 40, 50);
+       let block4 = new Block(snake.board, 50, 50);
+       snake.eat(block1);
+       snake.eat(block2);
+       snake.eat(block3);
+       snake.eat(block4);
 
-    //   assert.equal(snake.canMoveDown(), false);
-    // });
+       assert.equal(snake.canMoveDown(), false);
+     });
   });
 
 });
