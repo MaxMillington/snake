@@ -1,9 +1,14 @@
+body {
+  text-align: center;
+}
+
 .container {
     color: #44ff24;
     width: 100%;
+    border: 2px solid blue;
 }
 
 canvas {
-    margin: 0% 20%;
+    margin: 5%;
     border: 2px solid green;
 }
