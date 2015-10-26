@@ -31,19 +31,4 @@ describe('Food', function () {
         let food = new Food(board);
         assert.deepEqual(board.food[0], food);
     });
-
-    it('does not instantiate on top of the snake', function () {
-        let board = new Board(2, 2);
-        let snake = new Snake(board);
-        snake.x = 1;
-        snake.y = 1;
-        let block1 = new Block(snake.board, 0, 1);
-        let block2 = new Block(snake.board, 0, 0);
-        snake.eat(block1);
-        snake.eat(block2);
-        let food = new Food(board);
-        assert.equal(food.x, 1);
-        assert.equal(food.y, 0);
-    });
 });
-
