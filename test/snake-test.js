@@ -3,6 +3,7 @@ const assert   = chai.assert;
 const Block    = require('../lib/block').Block;
 const Board    = require('../lib/board').Board;
 const Snake    = require('../lib/snake').Snake;
+const Food     = require('../lib/food').Food;
 
 describe('Snake', function () {
   it('exists', function () {
@@ -122,6 +123,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('39');
       assert.equal(snake.head.x, 41);
@@ -134,6 +136,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 40, 39);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('39');
       assert.equal(snake.head.x, 41);
@@ -147,6 +150,7 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(board, 40, 41);
       let block2 = new Block(board, 40, 42);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.move('39');
@@ -167,6 +171,7 @@ describe('canMoveUp', function () {
       let block1 = new Block(board, 40, 39);
       let block2 = new Block(board, 39, 39);
       let block3 = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
@@ -191,6 +196,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('40');
       assert.equal(snake.head.x, 40);
@@ -203,6 +209,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 40, 39);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('40');
       assert.equal(snake.head.x, 40);
@@ -216,6 +223,7 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(board, 40, 39);
       let block2 = new Block(board, 40, 38);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.move('40');
@@ -236,6 +244,7 @@ describe('canMoveUp', function () {
       let block1 = new Block(board, 40, 39);
       let block2 = new Block(board, 39, 39);
       let block3 = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
@@ -260,6 +269,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('38');
       assert.equal(snake.head.x, 40);
@@ -272,6 +282,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 40, 41);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('38');
       assert.equal(snake.head.x, 40);
@@ -285,6 +296,7 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(board, 40, 41);
       let block2 = new Block(board, 40, 42);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.move('38');
@@ -305,6 +317,7 @@ describe('canMoveUp', function () {
       let block1 = new Block(board, 40, 39);
       let block2 = new Block(board, 39, 39);
       let block3 = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
@@ -329,6 +342,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('37');
       assert.equal(snake.head.x, 39);
@@ -341,6 +355,7 @@ describe('canMoveUp', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
       let block = new Block(board, 40, 41);
+      let food   = new Food(board);
       snake.body.push(block);
       snake.move('37');
       assert.equal(snake.head.x, 39);
@@ -354,6 +369,7 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(null, 40, 41);
       let block2 = new Block(null, 40, 42);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.move('37');
@@ -374,6 +390,7 @@ describe('canMoveUp', function () {
       let block1 = new Block(null, 40, 39);
       let block2 = new Block(null, 39, 39);
       let block3 = new Block(null, 39, 40);
+      let food   = new Food(board);
       snake.body.push(block1);
       snake.body.push(block2);
       snake.body.push(block3);
@@ -401,6 +418,7 @@ describe('canMoveUp', function () {
       let block2 = new Block(snake.board, 39, 39);
       let block3 = new Block(snake.board, 39, 40);
       let block4 = new Block(snake.board, 30, 41);
+      let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
       snake.eat(block3);
@@ -417,6 +435,7 @@ describe('canMoveUp', function () {
       let block2 = new Block(snake.board, 41, 40);
       let block3 = new Block(snake.board, 41, 41);
       let block4 = new Block(snake.board, 41, 42);
+      let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
       snake.eat(block3);
@@ -432,6 +451,7 @@ describe('canMoveUp', function () {
       let block2 = new Block(snake.board, 39, 39);
       let block3 = new Block(snake.board, 40, 39);
       let block4 = new Block(snake.board, 41, 39);
+      let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
       snake.eat(block3);
@@ -447,6 +467,7 @@ describe('canMoveUp', function () {
        let block2 = new Block(snake.board, 39, 41);
        let block3 = new Block(snake.board, 40, 41);
        let block4 = new Block(snake.board, 41, 41);
+       let food   = new Food(board);
        snake.eat(block1);
        snake.eat(block2);
        snake.eat(block3);
@@ -455,5 +476,18 @@ describe('canMoveUp', function () {
        assert.equal(snake.canMoveDown(), false);
      });
   });
+
+  describe('SnakeEatsFood', function () {
+    it('eats when the head has same coordinates as food', function () {
+      let board  = new Board(60, 60);
+      let snake  = new Snake(board);
+      let food   = new Food(board);
+      food.x     = 41
+      food.y     = 40
+      assert.equal(snake.body.length, 1)
+      snake.move('39')
+      assert.equal(snake.body.length, 2)
+    })
+  })
 
 });
