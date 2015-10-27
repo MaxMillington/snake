@@ -482,11 +482,11 @@ describe('canMoveUp', function () {
       let board  = new Board(60, 60);
       let snake  = new Snake(board);
       let food   = new Food(board);
-      food.x     = 41
-      food.y     = 40
-      assert.equal(snake.body.length, 1)
-      snake.move('39')
-      assert.equal(snake.body.length, 2)
+      food.x     = 41;
+      food.y     = 40;
+      assert.equal(snake.body.length, 1);
+      snake.move('39');
+      assert.equal(snake.body.length, 16)
     })
   })
 
