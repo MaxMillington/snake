@@ -449,8 +449,8 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(snake.board, 39, 40);
       let block2 = new Block(snake.board, 39, 39);
-      let block3 = new Block(snake.board, 40, 39);
-      let block4 = new Block(snake.board, 41, 39);
+      let block3 = new Block(snake.board, 40, 41);
+      let block4 = new Block(snake.board, 41, 41);
       let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
@@ -465,8 +465,8 @@ describe('canMoveUp', function () {
        let snake  = new Snake(board);
        let block1 = new Block(snake.board, 39, 40);
        let block2 = new Block(snake.board, 39, 41);
-       let block3 = new Block(snake.board, 40, 41);
-       let block4 = new Block(snake.board, 41, 41);
+       let block3 = new Block(snake.board, 40, 39);
+       let block4 = new Block(snake.board, 41, 39);
        let food   = new Food(board);
        snake.eat(block1);
        snake.eat(block2);
