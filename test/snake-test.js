@@ -33,7 +33,7 @@ describe('Snake', function () {
       let snake = new Snake(board);
       assert.equal(snake.body.length, 1);
       let block = new Block(snake.board, 50, 40);
-      snake.eat(block)
+      snake.eat(block);
       assert.equal(snake.body.length, 2)
     })
   });
@@ -42,8 +42,8 @@ describe('Snake', function () {
     it('should be true if it can move down', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
-      snake.head.x = 10;
-      snake.head.y = 10;
+      snake.head.x = 15;
+      snake.head.y = 15;
       assert.equal(snake.canMoveDown(), true);
     });
 
@@ -51,7 +51,7 @@ describe('Snake', function () {
       let board = new Board(30, 20);
       let snake = new Snake(board);
       snake.head.x = 1;
-      snake.head.y = 20;
+      snake.head.y = 0;
       assert.equal(snake.canMoveDown(), false);
     });
 
@@ -82,8 +82,8 @@ describe('canMoveLeft', function () {
   it('should be true if it can move left', function () {
     let board = new Board(30, 20);
     let snake = new Snake(board);
-    snake.head.x = 10;
-    snake.head.y = 1;
+    snake.head.x = 15;
+    snake.head.y = 15;
     assert.equal(snake.canMoveLeft(), true);
   });
 
@@ -100,10 +100,10 @@ describe('canMoveLeft', function () {
 describe('canMoveUp', function () {
 
   it('should be true if it can move up', function () {
-    let board = new Board(30, 20);
+    let board = new Board(300, 200);
     let snake = new Snake(board);
-    snake.head.x = 10;
-    snake.head.y = 10;
+    snake.head.x = 100;
+    snake.head.y = 100;
     assert.equal(snake.canMoveUp(), true);
   });
 
@@ -111,7 +111,7 @@ describe('canMoveUp', function () {
     let board = new Board(30, 20);
     let snake = new Snake(board);
     snake.head.x = 5;
-    snake.head.y = 0;
+    snake.head.y = 20;
     assert.equal(snake.canMoveUp(), false);
   });
 
@@ -126,7 +126,7 @@ describe('canMoveUp', function () {
       let food   = new Food(board);
       snake.body.push(block);
       snake.move('39');
-      assert.equal(snake.head.x, 41);
+      assert.equal(snake.head.x, 42);
       assert.equal(snake.head.y, 40);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
@@ -139,7 +139,7 @@ describe('canMoveUp', function () {
       let food   = new Food(board);
       snake.body.push(block);
       snake.move('39');
-      assert.equal(snake.head.x, 41);
+      assert.equal(snake.head.x, 42);
       assert.equal(snake.head.y, 40);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
@@ -155,7 +155,7 @@ describe('canMoveUp', function () {
       snake.body.push(block2);
       snake.move('39');
 
-      assert.equal(snake.head.x, 41);
+      assert.equal(snake.head.x, 42);
       assert.equal(snake.head.y, 40);
 
       assert.equal(snake.body[1].x, 40);
@@ -177,7 +177,7 @@ describe('canMoveUp', function () {
       snake.body.push(block3);
       snake.move('39');
 
-      assert.equal(snake.head.x, 41);
+      assert.equal(snake.head.x, 42);
       assert.equal(snake.head.y, 40);
 
       assert.equal(snake.body[1].x, 40);
@@ -200,7 +200,7 @@ describe('canMoveUp', function () {
       snake.body.push(block);
       snake.move('40');
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 41);
+      assert.equal(snake.head.y, 42);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -213,7 +213,7 @@ describe('canMoveUp', function () {
       snake.body.push(block);
       snake.move('40');
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 41);
+      assert.equal(snake.head.y, 42);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -229,7 +229,7 @@ describe('canMoveUp', function () {
       snake.move('40');
 
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 41);
+      assert.equal(snake.head.y, 42);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
@@ -251,7 +251,7 @@ describe('canMoveUp', function () {
       snake.move('40');
 
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 41);
+      assert.equal(snake.head.y, 42);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
@@ -273,7 +273,7 @@ describe('canMoveUp', function () {
       snake.body.push(block);
       snake.move('38');
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 39);
+      assert.equal(snake.head.y, 38);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -286,7 +286,7 @@ describe('canMoveUp', function () {
       snake.body.push(block);
       snake.move('38');
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 39);
+      assert.equal(snake.head.y, 38);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
     });
@@ -302,7 +302,7 @@ describe('canMoveUp', function () {
       snake.move('38');
 
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 39);
+      assert.equal(snake.head.y, 38);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
@@ -324,7 +324,7 @@ describe('canMoveUp', function () {
       snake.move('38');
 
       assert.equal(snake.head.x, 40);
-      assert.equal(snake.head.y, 39);
+      assert.equal(snake.head.y, 38);
 
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40);
@@ -345,7 +345,7 @@ describe('canMoveUp', function () {
       let food   = new Food(board);
       snake.body.push(block);
       snake.move('37');
-      assert.equal(snake.head.x, 39);
+      assert.equal(snake.head.x, 38);
       assert.equal(snake.head.y, 40);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
@@ -358,7 +358,7 @@ describe('canMoveUp', function () {
       let food   = new Food(board);
       snake.body.push(block);
       snake.move('37');
-      assert.equal(snake.head.x, 39);
+      assert.equal(snake.head.x, 38);
       assert.equal(snake.head.y, 40);
       assert.equal(snake.body[1].x, 40);
       assert.equal(snake.body[1].y, 40)
@@ -374,7 +374,7 @@ describe('canMoveUp', function () {
       snake.body.push(block2);
       snake.move('37');
 
-      assert.equal(snake.head.x, 39);
+      assert.equal(snake.head.x, 38);
       assert.equal(snake.head.y, 40);
 
       assert.equal(snake.body[1].x, 40);
@@ -396,7 +396,7 @@ describe('canMoveUp', function () {
       snake.body.push(block3);
       snake.move('37');
 
-      assert.equal(snake.head.x, 39);
+      assert.equal(snake.head.x, 38);
       assert.equal(snake.head.y, 40);
 
       assert.equal(snake.body[1].x, 40);
@@ -449,8 +449,8 @@ describe('canMoveUp', function () {
       let snake = new Snake(board);
       let block1 = new Block(snake.board, 39, 40);
       let block2 = new Block(snake.board, 39, 39);
-      let block3 = new Block(snake.board, 40, 39);
-      let block4 = new Block(snake.board, 41, 39);
+      let block3 = new Block(snake.board, 40, 41);
+      let block4 = new Block(snake.board, 41, 41);
       let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
@@ -465,8 +465,8 @@ describe('canMoveUp', function () {
        let snake  = new Snake(board);
        let block1 = new Block(snake.board, 39, 40);
        let block2 = new Block(snake.board, 39, 41);
-       let block3 = new Block(snake.board, 40, 41);
-       let block4 = new Block(snake.board, 41, 41);
+       let block3 = new Block(snake.board, 40, 39);
+       let block4 = new Block(snake.board, 41, 39);
        let food   = new Food(board);
        snake.eat(block1);
        snake.eat(block2);
@@ -482,11 +482,11 @@ describe('canMoveUp', function () {
       let board  = new Board(60, 60);
       let snake  = new Snake(board);
       let food   = new Food(board);
-      food.x     = 41
-      food.y     = 40
-      assert.equal(snake.body.length, 1)
-      snake.move('39')
-      assert.equal(snake.body.length, 2)
+      food.x     = 41;
+      food.y     = 40;
+      assert.equal(snake.body.length, 1);
+      snake.move('39');
+      assert.equal(snake.body.length, 16)
     })
   })
 
