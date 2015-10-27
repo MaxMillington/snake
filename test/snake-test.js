@@ -16,8 +16,8 @@ describe('Snake', function () {
     let snake = new Snake(board);
     assert.equal(snake.head.x, 40);
     assert.equal(snake.head.y, 40);
-    assert.equal(snake.head.width, 1);
-    assert.equal(snake.head.height, 1);
+    assert.equal(snake.head.width, 10);
+    assert.equal(snake.head.height, 10);
     assert(snake.body)
   });
 
