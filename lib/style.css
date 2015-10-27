@@ -1,14 +1,29 @@
 body {
   text-align: center;
+  background-color: #AD9D82;
 }
 
 .container {
     color: #44ff24;
-    width: 100%;
-    border: 2px solid blue;
+    border: 2px solid orange;
+    padding: 0px;
 }
 
 canvas {
-    margin: 5%;
     border: 2px solid green;
+    background-color: beige;
+}
+
+#title {
+  font-family: fantasy;
+  font-weight: bolder;
+  color: wheat;
+}
+
+#score {
+  text-align: left;
+  font-family: fantasy;
+  font-weight: bolder;
+  color: wheat;
+  padding-left: 5%;
 }
