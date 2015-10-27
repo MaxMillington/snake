@@ -414,10 +414,10 @@ describe('canMoveUp', function () {
     it('cannot move left onto itself', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
-      let block1 = new Block(snake.board, 40, 39);
-      let block2 = new Block(snake.board, 39, 39);
-      let block3 = new Block(snake.board, 39, 40);
-      let block4 = new Block(snake.board, 30, 41);
+      let block1 = new Block(snake.board, 40, 38);
+      let block2 = new Block(snake.board, 38, 38);
+      let block3 = new Block(snake.board, 38, 40);
+      let block4 = new Block(snake.board, 38, 42);
       let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
@@ -431,10 +431,10 @@ describe('canMoveUp', function () {
     it('cannot move right onto itself', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
-      let block1 = new Block(snake.board, 40, 39);
-      let block2 = new Block(snake.board, 41, 40);
-      let block3 = new Block(snake.board, 41, 41);
-      let block4 = new Block(snake.board, 41, 42);
+      let block1 = new Block(snake.board, 40, 38);
+      let block2 = new Block(snake.board, 42, 40);
+      let block3 = new Block(snake.board, 42, 42);
+      let block4 = new Block(snake.board, 42, 44);
       let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
@@ -447,10 +447,10 @@ describe('canMoveUp', function () {
     it('cannot move up onto itself', function () {
       let board = new Board(60, 60);
       let snake = new Snake(board);
-      let block1 = new Block(snake.board, 39, 40);
-      let block2 = new Block(snake.board, 39, 39);
-      let block3 = new Block(snake.board, 40, 41);
-      let block4 = new Block(snake.board, 41, 41);
+      let block1 = new Block(snake.board, 38, 40);
+      let block2 = new Block(snake.board, 38, 38);
+      let block3 = new Block(snake.board, 40, 42);
+      let block4 = new Block(snake.board, 42, 42);
       let food   = new Food(board);
       snake.eat(block1);
       snake.eat(block2);
@@ -463,10 +463,10 @@ describe('canMoveUp', function () {
      it('cannot move down onto itself', function () {
        let board  = new Board(60, 60);
        let snake  = new Snake(board);
-       let block1 = new Block(snake.board, 39, 40);
-       let block2 = new Block(snake.board, 39, 41);
-       let block3 = new Block(snake.board, 40, 39);
-       let block4 = new Block(snake.board, 41, 39);
+       let block1 = new Block(snake.board, 38, 40);
+       let block2 = new Block(snake.board, 38, 42);
+       let block3 = new Block(snake.board, 40, 38);
+       let block4 = new Block(snake.board, 42, 38);
        let food   = new Food(board);
        snake.eat(block1);
        snake.eat(block2);
