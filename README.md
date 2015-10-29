@@ -1,4 +1,5 @@
-# Snake is built using Object-Oriented, Test-Driven JavaScript with HTML5 canvas
+# Snake 
+Snake is built using Object-Oriented, Test-Driven JavaScript with HTML5 canvas
 
 
 
