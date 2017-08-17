@@ -1,4 +1,4 @@
-#Snake
+# Snake
 Snake is built using Object-Oriented, Test-Driven JavaScript with HTML5 canvas
 
 # Game Time Starter Kit
